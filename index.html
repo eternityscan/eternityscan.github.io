@@ -1,0 +1,515 @@
+<html>
+<head>
+<style>@font-face {
+  font-family: 'Stargate';
+  src: local('Stargate'), url('https://manzdev.github.io/cursos-assets/css3/fonts/Stargate.ttf.woff') format('woff');
+}
+html ,
+body {
+  margin: 0;
+  background-image: url(https://img.freepik.com/free-photo/digital-art-galaxy_23-2151050644.jpg?t=st=1714046371~exp=1714049971~hmac=2bd03abaafe63c2757236067db15d4b188c6e011b877978f02749ce8c6e7e4ca&w=740);
+  background-size: cover; 
+  height: 100%;
+  width:auto;
+ 
+  position: relative;
+
+}
+.title {
+  width: 600px;
+  margin: 0 auto 25px auto;
+  padding: 0 25px;
+  font-family: 'Stargate';
+}
+.title img {
+  filter: invert(1);
+  width: 64px;
+}
+.title h2 {
+  font-size: 82px;
+  color: #FFF;
+  margin: 10px auto 0 auto;
+  text-align: center;
+  
+}
+.title h4 {
+  text-align: right;
+  margin: 0;
+  padding: 10px 75px 0 0;
+  border-top: 1px solid #ffa012;
+}
+.title h4 a {
+  color: #0ea8ef;
+}
+.sg-border {
+  width: 675px;
+  height: 675px;
+  border: 14px solid #111;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+.arrow {
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 25px 0 25px;
+  border-color: #5e2f12 transparent transparent transparent;
+  transition: all 1s linear;
+}
+.arrow.on {
+  border-color: gold transparent transparent transparent;
+  filter: drop-shadow(0 0 5px rgb(255, 102, 0));
+}
+.arrow.arrow1 {
+  left: 318px;
+}
+.arrow.arrow2 {
+  left: 525px;
+  top: 80px;
+  transform: rotate(40deg);
+}
+.arrow.arrow3 {
+  left: 635px;
+  top: 300px;
+  transform: rotate(87deg);
+}
+.arrow.arrow4 {
+  left: 575px;
+  top: 515px;
+  transform: rotate(125deg);
+}
+.arrow.arrow5 {
+  left: 425px;
+  top: 630px;
+  transform: rotate(160deg);
+}
+.arrow.arrow6 {
+  left: 215px;
+  top: 635px;
+  transform: rotate(200deg);
+}
+.arrow.arrow7 {
+  left: 50px;
+  top: 515px;
+  transform: rotate(235deg);
+}
+.arrow.arrow8 {
+  left: -12px;
+  top: 315px;
+  transform: rotate(272deg);
+}
+.arrow.arrow9 {
+  left: 70px;
+  top: 105px;
+  transform: rotate(310deg);
+}
+#stargate {
+  background: radial-gradient(transparent 53%, #222 53%);
+  width: 675px;
+  height: 675px;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px #000 inset, -4px -4px 6px #000 inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: move 20s cubic-bezier(0.44, 0.35, 0.78, 0.73) paused infinite;
+          animation: move 20s cubic-bezier(0.44, 0.35, 0.78, 0.73) paused infinite;
+}
+#stargate.on {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+#stargate img.chevron {
+  filter: invert(1);
+  width: 42px;
+  position: absolute;
+  top: 46%;
+  left: 47%;
+}
+#stargate .chevron:nth-child(1) {
+  transform: translate(0, -300px);
+}
+#stargate .chevron:nth-child(2) {
+  transform: translate(50px, -290px);
+}
+#stargate .chevron:nth-child(3) {
+  transform: translate(100px, -275px);
+}
+#stargate .chevron:nth-child(4) {
+  transform: translate(145px, -250px);
+}
+#stargate .chevron:nth-child(5) {
+  transform: translate(185px, -225px);
+}
+#stargate .chevron:nth-child(6) {
+  transform: translate(220px, -185px);
+}
+#stargate .chevron:nth-child(7) {
+  transform: translate(250px, -140px);
+}
+#stargate .chevron:nth-child(8) {
+  transform: translate(275px, -90px);
+}
+#stargate .chevron:nth-child(9) {
+  transform: translate(285px, -40px);
+}
+#stargate .chevron:nth-child(10) {
+  transform: translate(290px, 0);
+}
+#stargate .chevron:nth-child(11) {
+  transform: translate(288px, 50px);
+}
+#stargate .chevron:nth-child(12) {
+  transform: translate(275px, 95px);
+}
+#stargate .chevron:nth-child(13) {
+  transform: translate(253px, 135px);
+}
+#stargate .chevron:nth-child(14) {
+  transform: translate(230px, 172px);
+}
+#stargate .chevron:nth-child(15) {
+  transform: translate(197px, 207px);
+}
+#stargate .chevron:nth-child(16) {
+  transform: translate(153px, 243px);
+}
+#stargate .chevron:nth-child(17) {
+  transform: translate(111px, 269px);
+}
+#stargate .chevron:nth-child(18) {
+  transform: translate(70px, 286px);
+}
+#stargate .chevron:nth-child(19) {
+  transform: translate(21px, 293px);
+}
+#stargate .chevron:nth-child(20) {
+  transform: translate(-25px, 295px);
+}
+#stargate .chevron:nth-child(21) {
+  transform: translate(-66px, 290px);
+}
+#stargate .chevron:nth-child(22) {
+  transform: translate(-109px, 277px);
+}
+#stargate .chevron:nth-child(23) {
+  transform: translate(-144px, 258px);
+}
+#stargate .chevron:nth-child(24) {
+  transform: translate(-185px, 235px);
+}
+#stargate .chevron:nth-child(25) {
+  transform: translate(-221px, 202px);
+}
+#stargate .chevron:nth-child(26) {
+  transform: translate(-249px, 170px);
+}
+#stargate .chevron:nth-child(27) {
+  transform: translate(-272px, 135px);
+}
+#stargate .chevron:nth-child(28) {
+  transform: translate(-282px, 100px);
+}
+#stargate .chevron:nth-child(29) {
+  transform: translate(-295px, 69px);
+}
+#stargate .chevron:nth-child(30) {
+  transform: translate(-300px, 32px);
+}
+#stargate .chevron:nth-child(31) {
+  transform: translate(-300px, -17px);
+}
+#stargate .chevron:nth-child(32) {
+  transform: translate(-293px, -61px);
+}
+#stargate .chevron:nth-child(33) {
+  transform: translate(-282px, -103px);
+}
+#stargate .chevron:nth-child(34) {
+  transform: translate(-263px, -138px);
+}
+#stargate .chevron:nth-child(35) {
+  transform: translate(-240px, -171px);
+}
+#stargate .chevron:nth-child(36) {
+  transform: translate(-205px, -211px);
+}
+#stargate .chevron:nth-child(37) {
+  transform: translate(-163px, -248px);
+}
+#stargate .chevron:nth-child(38) {
+  transform: translate(-109px, -275px);
+}
+#stargate .chevron:nth-child(39) {
+  transform: translate(-60px, -287px);
+}
+.wormhole {
+  position: relative;
+  background-color: transparent;
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+  border: #000 1px solid;
+  width: 510px;
+  height: 510px;
+  border-radius: 50%;
+  transition: all 1s ease;
+}
+.wormhole.on {
+  background-image: url(https://i.gifer.com/3QAe.gif);
+  background-size: cover; 
+  box-shadow: 15px 15px 25px #11B inset, -15px -15px 45px rgb(149, 149, 214) inset, 0 0 15px 10px rgba(0, 0, 0, 0.5);
+}
+div.message {
+  position: absolute;
+  font-size: 42px;
+  color: rgb(27, 27, 27);
+  top: 50vh;
+  z-index: 5;
+  width: 100%;
+  text-align: center;
+  -webkit-animation: fadeout 1s ease-out 3s 1 forwards;
+          animation: fadeout 1s ease-out 3s 1 forwards;
+  background: rgba(39, 39, 39, 0.25);
+}
+div.message p:first-child {
+  margin-bottom: 0;
+}
+div.message .small {
+  font-size: 18px;
+  margin-top: 0;
+  padding-bottom: 20px;
+}
+@-webkit-keyframes move {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes move {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+    z-index: 4;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    z-index: 4;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+/*
+@keyframes moveColor {
+  0% { background-color: #22A }
+  100% { background-color: #2828AA }
+}
+*/
+</style>
+</head>
+<body>
+<div class="title"><br><br>
+    <h2 style="font-size : larger">GET READY TO FIND THE SECRETS OF THE</h2>
+  <h2> ETERNITY</h2>
+ 
+</div>
+<div class="sg-border">
+  <div class="arrow arrow1"></div>
+  <div class="arrow arrow2"></div>
+  <div class="arrow arrow3"></div>
+  <div class="arrow arrow4"></div>
+  <div class="arrow arrow5"></div>
+  <div class="arrow arrow6"></div>
+  <div class="arrow arrow7"></div>
+  <div class="arrow arrow8"></div>
+  <div class="arrow arrow9"></div>
+  <div id="stargate">
+    <div class="wormhole"><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/001.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/002.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/003.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/004.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/005.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/006.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/007.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/008.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/009.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/010.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/011.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/012.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/013.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/014.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/015.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/016.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/017.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/018.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/019.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/020.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/021.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/022.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/023.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/024.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/025.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/026.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/027.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/028.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/029.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/030.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/031.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/032.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/033.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/034.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/035.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/036.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/037.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/038.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/039.svg"/>
+    </div>
+  </div>
+</div>
+
+
+<div class="message">
+  <p style="color : rgb(233, 115, 115)" class="small">(WARNING: In the twisted corridors of time, one wrong step could mean eternal entrapment !)</p>
+</div>
+
+<div class="title"><br><br>
+    <h2 style="font-size : large">CHEVRONS MAY THE KEY FOR THE ETERNITY </h2>
+</div>
+
+<script>// SVG: http://stargate.wikia.com/wiki/Glyph
+
+var sounds = {}
+//var path = 'https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/audio/';
+var path = 'https://manzdev.github.io/cursos-assets/css3/audio/';
+var title = document.querySelector('.title');
+var listChevrons = document.querySelectorAll('#stargate img');
+
+// ChevronClosed sounds
+sounds.chevronClosed = {
+  audio: [new Audio(path + 'chev_usual_1.mp3'),
+          new Audio(path + 'chev_usual_2.mp3'),
+          new Audio(path + 'chev_usual_3.mp3'),
+          new Audio(path + 'chev_usual_4.mp3'),
+          new Audio(path + 'chev_usual_5.mp3'),
+          new Audio(path + 'chev_usual_6.mp3'),
+          new Audio(path + 'chev_usual_7.mp3')]
+}
+sounds.chevronClosed.play = function(n = -1) {
+  if (n == -1)
+    var n = Math.floor(Math.random() * this.audio.length);
+  this.audio[n].currentTime = 0;
+  this.audio[n].play();
+}
+
+// Stargate sounds
+sounds.gateRoll = new Audio(path + 'roll.mp3');
+sounds.gateSpin = new Audio(path + 'spin.mp3');
+sounds.fail = new Audio(path + 'fail.mp3');
+sounds.gateClose = new Audio(path + 'eh_usual_close.mp3');
+sounds.gateOpen = new Audio(path + 'eh_usual_open.mp3');
+sounds.gateSpin.loop = true;
+sounds.gateSpin.addEventListener('timeupdate', function() {
+  if (this.currentTime > this.duration - .3)
+    this.currentTime = 0;
+});
+
+// WormHole Loop sounds
+sounds.wormHole = new Audio(path + 'wormhole.mp3');
+sounds.wormHole.loop = true;
+sounds.wormHole.addEventListener('timeupdate', function() {
+  if (this.currentTime > this.duration - .6)
+    this.currentTime = 0;
+});
+
+// Arrows
+var arrows = document.querySelectorAll('.arrow');
+[].forEach.call(arrows, function(i) {
+  i.addEventListener('click', function() {
+    
+    if (!this.classList.contains('on')) {
+      sounds.chevronClosed.play();
+      this.classList.add('on');
+      
+      if (stargate.getChevronsOpened() == 8) {
+        stargate.startMove();
+        //stargate.title = title.innerHTML;
+        //title.innerHTML = '';
+      }
+      
+      //var n = Math.floor(Math.random() * listChevrons.length);
+      //title.innerHTML += listChevrons[n].outerHTML;
+    
+      if ((stargate.isOpen() == false) && (stargate.isReady() == true))
+        setTimeout(function() {
+          stargate.enableWormHole();
+        }, 1000);
+    }
+   
+  });
+});
+
+var stargate = {
+  
+  CHAPAHAI_OPEN: false,
+  
+  isOpen: function() {
+    return this.CHAPAHAI_OPEN;
+  },
+  
+  isReady: function() {
+    return (document.querySelectorAll('.arrow:not(.on)').length === 0);
+  },
+  
+  getChevronsOpened: function() {
+    return document.querySelectorAll('.arrow:not(.on)').length;
+  },
+
+  // Comienza a mover el Stargate (20 seg máx.)
+  startMove: function() {
+    document.querySelector('#stargate').classList.add('on'); 
+    sounds.gateRoll.volume = .5;
+    sounds.gateRoll.currentTime = 0;
+    sounds.gateRoll.play();
+    
+    setTimeout(function() {
+      document.querySelector('#stargate').classList.remove('on');
+      
+      if (stargate.isOpen() == false) {
+        sounds.fail.play();
+        stargate.disableChevrons();
+      }
+    }, 20000);
+  },
+  
+  stopMove: function() {
+    document.querySelector('#stargate').classList.remove('on');
+    if (!sounds.gateRoll.paused)
+      sounds.gateRoll.pause()
+  },
+  
+  // Activa un chevron aleatorio (o el "n" indicado)
+  enableChevron: function(n = -1) {
+    var arrowsOff = document.querySelectorAll('.arrow:not(.on)');
+    if (n == -1)
+      var n = Math.floor(Math.random() * arrowsOff.length);
+    
+    arrowsOff[n].classList.add('on');
+    sounds.chevronClosed.play();
+  },
+  
+  disableChevrons: function() {
+    [].forEach.call(arrows, function(i) {
+      i.classList.remove('on');
+    });
+  },
+  
+  enableWormHole: function() {
+    this.CHAPAHAI_OPEN = true;
+    this.stopMove();    
+    sounds.gateOpen.play();
+    document.querySelector('.wormhole').classList.add('on');
+    setTimeout(function() { 
+      sounds.wormHole.play();
+    }, 3000);
+    
+    setTimeout(function() {
+      stargate.disableWormHole();
+    }, 18000);
+  },
+  
+  disableWormHole: function() {
+    this.CHAPAHAI_OPEN = false;
+    sounds.gateClose.play();
+    setTimeout(function() {
+      document.querySelector('.wormhole').classList.remove('on');
+      sounds.wormHole.pause();      
+    }, 300);
+    this.disableChevrons();
+    //title.innerHTML = stargate.title;
+  }
+}
+
+</script>
+</body>
+</html>
