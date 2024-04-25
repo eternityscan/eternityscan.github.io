@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>@font-face {
+<style>
+/* Center-align the passcode form */@font-face {
   font-family: 'Stargate';
   src: local('Stargate'), url('https://manzdev.github.io/cursos-assets/css3/fonts/Stargate.ttf.woff') format('woff');
 }
@@ -326,18 +327,54 @@ div.message .small {
 }
 */
 /* Your existing CSS styles */
+.passcode-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style for passcode input */
+.passcode-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Style for submit button */
+.submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Hide the web content by default */
+.web-content {
+  display: none;
+}
 </style>
 </head>
 <body>
 <!-- Passcode form -->
 <div class="passcode-form">
-  <label for="passcode">Enter Passcode:</label>
-  <input type="password" id="passcode" name="passcode">
-  <button onclick="checkPasscode()">Submit</button>
+  <label for="passcode">Enter Passcode:</label><br>
+  <input type="password" id="passcode" name="passcode" class="passcode-input"><br>
+  <button onclick="checkPasscode()" class="submit-button">Submit</button>
 </div>
 
 <!-- Web content (hidden by default) -->
-<div class="web-content" style="display: none;"><div class="title"><br><br>
+<div class="web-content"><div class="title"><br><br>
     <h2 style="font-size : larger">GET READY TO FIND THE SECRETS OF THE</h2>
   <h2> ETERNITY</h2>
  
@@ -371,6 +408,7 @@ div.message .small {
 
 <script>
 // Your existing JavaScript code
+// SVG: http://stargate.wikia.com/wiki/Glyph
 
 var sounds = {}
 //var path = 'https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/audio/';
