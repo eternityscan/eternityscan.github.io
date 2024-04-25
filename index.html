@@ -353,6 +353,7 @@ div.message .small {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  font-family: 'Stargate';
 }
 
 .submit-button:hover {
@@ -363,19 +364,58 @@ div.message .small {
 .web-content {
   display: none;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+button{
+  padding: 25px 30px;
+  background-color: #272726;
+  color: #03e9f4;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  font-family: 'Stargate';
+}
+
+button:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 <!-- Passcode form -->
 <div class="passcode-form">
-  <label for="passcode">Enter Passcode:</label><br>
-  <input type="password" id="passcode" name="passcode" class="passcode-input"><br>
-  <button onclick="checkPasscode()" class="submit-button">Submit</button>
+   
+  <label for="passcode"><div class="title">
+      <h2 style="font-size : xx-large">THE GATEKEEPER'S CHALLENGE</h2>
+    
+    <br><br>
+    <h2 style="font-size : large">ENTER THE <span style="color:chartreuse">FOUR-DIGIT CODE</span> TO PROVE YOUR WORTH, AND SEE YOURSELF THE ETERNITY UNFOLD !</h2>
+</div></label><br>
+  <input type="password" id="passcode" name="passcode" class="passcode-input"><br><br>
+  <button onclick="checkPasscode()" class="button">INTRACT</button>
 </div>
 
 <!-- Web content (hidden by default) -->
 <div class="web-content"><div class="title"><br><br>
-    <h2 style="font-size : larger">GET READY TO FIND THE SECRETS OF THE</h2>
+    <h2 style="font-size : larger">FEW MORE TO FIND THE SECRETS OF THE</h2>
   <h2> ETERNITY</h2>
  
 </div>
@@ -401,7 +441,7 @@ div.message .small {
 </div>
 
 <div class="title"><br><br>
-    <h2 style="font-size : large">CHEVRONS MAY THE KEY FOR THE ETERNITY </h2>
+    <h2 style="font-size : large">CHEVRONS MAY THE KEYS FOR THE ETERNITY </h2>
 </div>
   <!-- Your existing web content here -->
 </div>
@@ -564,7 +604,7 @@ var stargate = {
 // Function to check the passcode
 function checkPasscode() {
   var passcodeInput = document.getElementById("passcode").value;
-  var passcode = "4379"; // Your desired passcode
+  var passcode = "4379";
 
   if (passcodeInput === passcode) {
     // If passcode is correct, display the web content
@@ -572,7 +612,7 @@ function checkPasscode() {
     document.querySelector('.web-content').style.display = 'block';
   } else {
     // If passcode is incorrect, show a warning message
-    alert("Incorrect passcode! Please try again.");
+    alert("Access denied! Your worthiness remains unseen. Incorrect passcode.");
   }
 }
 </script>
