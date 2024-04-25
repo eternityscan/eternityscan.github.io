@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <style>@font-face {
@@ -324,10 +325,19 @@ div.message .small {
   100% { background-color: #2828AA }
 }
 */
+/* Your existing CSS styles */
 </style>
 </head>
 <body>
-<div class="title"><br><br>
+<!-- Passcode form -->
+<div class="passcode-form">
+  <label for="passcode">Enter Passcode:</label>
+  <input type="password" id="passcode" name="passcode">
+  <button onclick="checkPasscode()">Submit</button>
+</div>
+
+<!-- Web content (hidden by default) -->
+<div class="web-content" style="display: none;"><div class="title"><br><br>
     <h2 style="font-size : larger">GET READY TO FIND THE SECRETS OF THE</h2>
   <h2> ETERNITY</h2>
  
@@ -356,8 +366,11 @@ div.message .small {
 <div class="title"><br><br>
     <h2 style="font-size : large">CHEVRONS MAY THE KEY FOR THE ETERNITY </h2>
 </div>
+  <!-- Your existing web content here -->
+</div>
 
-<script>// SVG: http://stargate.wikia.com/wiki/Glyph
+<script>
+// Your existing JavaScript code
 
 var sounds = {}
 //var path = 'https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/audio/';
@@ -510,6 +523,20 @@ var stargate = {
   }
 }
 
+// Function to check the passcode
+function checkPasscode() {
+  var passcodeInput = document.getElementById("passcode").value;
+  var passcode = "4379"; // Your desired passcode
+
+  if (passcodeInput === passcode) {
+    // If passcode is correct, display the web content
+    document.querySelector('.passcode-form').style.display = 'none';
+    document.querySelector('.web-content').style.display = 'block';
+  } else {
+    // If passcode is incorrect, show a warning message
+    alert("Incorrect passcode! Please try again.");
+  }
+}
 </script>
 </body>
 </html>
