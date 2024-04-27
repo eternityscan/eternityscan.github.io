@@ -1,0 +1,420 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>cross word puzzle</title>
+  <link rel="stylesheet" href="transfer.css">
+  <style>
+  body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  border-collapse: separate;
+  border-spacing: 4px;
+  margin: 20px auto;
+  background-color: #999;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+
+
+input {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto; /* Enable pointer events on input fields */
+}
+
+input:disabled {
+  background: #333;
+  color: #fff;
+}
+
+span {
+  font-weight: bold;
+}
+
+button + span {
+  display: none;
+}
+
+button:focus + span {
+  display: inline;
+}
+
+/* Across and Down lists styles */
+h3 {
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for depth effect */
+}
+
+p {
+  margin: 10px auto;
+  width: 80%;
+  background-color: #f2f2f2; /* Light gray background */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;/* Add box shadow for depth effect */
+}
+
+button {
+  background-color:darkred; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+button:hover {
+  background-color: green; /* Darker green on hover */
+}
+
+
+table {
+  margin-top: 20px;
+}
+
+td:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+/* Timer container styles */
+/* Timer container styles */
+.timer-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Timer styles */
+#timer {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  color: red; /* Red digits */
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #000; /* Black background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* Styles for the hint container */
+#hint-container {
+  width: 300px; /* Adjust width as needed */
+  margin: 20px auto; /* Center the container horizontally with some margin */
+  border: 2px solid #ddd; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+}
+
+/* Styles for the hint header */
+#hint-header {
+  background-color: #f9f9f9; /* Background color for the header */
+  padding: 10px; /* Add padding to the header */
+  border-top-left-radius: 10px; /* Rounded corners for the top left */
+  border-top-right-radius: 10px; /* Rounded corners for the top right */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
+}
+
+#hints-taken {
+  font-weight: bold; /* Bold font for the hints taken count */
+}
+
+/* Styles for the bulbs */
+#bulbs {
+  display: flex; /* Use flexbox for alignment */
+}
+
+.bulb {
+  width: 20px;
+  height: 20px;
+  background-color: yellow; /* Yellow color for the bulbs */
+  border-radius: 50%; /* Make the bulbs circular */
+  margin: 0 5px; /* Add some margin between the bulbs */
+}
+/* Styles for the hint image container */
+#hint-image-container {
+  width: 99%; /* Make the hint image container fill the hint container */
+  height: 200px; /* Adjust height as needed */
+  border: 2px solid #ddd; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+  overflow: hidden; /* Hide overflow content (e.g., if image exceeds container size) */
+}
+
+#hint-image-container img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Make the image fill the container */
+  display: block; /* Remove default image spacing */
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="timer-container">
+    <span id="timer">00:00</span>
+  </div>
+  <table class="wrapper">
+    
+    <tr>
+      <td>1
+        <input type="text" maxlength="1" id="myId01" disabled>
+      </td>
+      <td>2
+        <input type="text" maxlength="1" id="myId02" disabled>
+      </td>
+      <td><span style="opacity: 0.4;">3</span>
+        <input type="text" maxlength="4" id="myId03">
+      </td>
+      <td>4
+        <input type="text" maxlength="4" id="myId04" disabled>
+      </td>
+      <td>5
+        <input type="text" maxlength="4" id="myId05" disabled>
+      </td>
+    </tr>
+    <tr>
+      <td>6
+        <input type="text" maxlength="4" id="myId11" disabled>
+      </td>
+      <td><span style="opacity: 0.4;">7</span>
+        <input type="text" maxlength="4" id="myId12">
+      </td>
+      <td><span style="opacity: 0.4;">8</span>
+        <input type="text" maxlength="4" id="myId13">
+      </td>
+      <td><span style="opacity: 0.4;">9</span>
+        <input type="text" maxlength="4" id="myId14">
+      </td>
+      <td><span style="opacity: 0.4;">10</span>
+        <input type="text" maxlength="4" id="myId15">
+      </td>
+    </tr>
+    <tr>
+      <td>11
+        <input type="text" maxlength="4" id="myId21" disabled>
+      </td>
+      <td>12
+        <input type="text" maxlength="4" id="myId22" disabled>
+      </td>
+      <td><span style="opacity: 0.4;">13</span>
+        <input type="text" maxlength="4" id="myId23">
+      </td>
+      <td>14
+        <input type="text" maxlength="4" id="myId24" disabled>
+      </td>
+      <td><span style="opacity: 0.4;">15</span>
+        <input type="text" maxlength="4" id="myId25">
+      </td>
+    </tr>
+    <tr>
+      <td><span style="opacity: 0.4;">16</span>
+        <input type="text" maxlength="4" id="myId31">
+      </td>
+      <td><span style="opacity: 0.4;">17</span>
+        <input type="text" maxlength="4" id="myId32">
+      </td>
+      <td><span style="opacity: 0.4;">18</span>
+        <input type="text" maxlength="4" id="myId33">
+      </td>
+      <td>19
+        <input type="text" maxlength="4" id="myId34" disabled>
+      </td>
+      <td><span style="opacity: 0.4;">20</span>
+        <input type="text" maxlength="4" id="myId35">
+      </td>
+    </tr>
+    <tr>
+      <td><span style="opacity: 0.4;">21</span>
+        <input type="text" maxlength="4" id="myId41">
+      </td>
+      <td>22
+        <input type="text" maxlength="4" id="myId42" disabled>
+      </td>
+      <td>23
+        <input type="text" maxlength="4" id="myId43" disabled>
+      </td>
+      <td>24
+        <input type="text" maxlength="4" id="myId44" disabled>
+      </td>
+      <td>25
+        <input type="text" maxlength="4" id="myId45" disabled>
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  <div id="hint-container">
+    <div id="hint-header">
+        <p style="center"><b>ඉගි රූප දර්ශකය 💡</b></p>
+          
+    </div>
+    <div id="hint-image-container">
+      <!-- Initially, this will be empty until a hint is revealed -->
+    </div>
+  </div>
+    <!-- Initially, this will be empty until a hint is revealed -->
+  </div>
+<br><br>
+  <h3>හරහට</h3>
+  <p>7: කලාත්මකව ආලේප කිරීම යන්න හැගවේ.
+    <button>Hint 💡</button><span> Hint-1 successfully displayed</span></p>
+  <p>16: වතිකානුවේ සාන්ත පීතර බැසිලිකාවේ ආකෘතියට ශ්‍රී ලංකාවේ තනන ලද  ඉතා ප්‍රසිද්ධ දේවස්ථානයක් පිහිටි නගරයකි.
+    <button>Hint 💡</button><span> Hint-2 successfully displayed</span></p>
+  <h3>පහළට</h3>
+  <p>3: ව්‍යාපාරයකට තම නිෂ්පාදනයකට හෝ සේවාවකට වැඩි වටිනාකමක් එකතු කිරීම සදහා වැදහත් වන වන බලවත් අස්පෘශ්‍ය වත්කමකි
+    <button>Hint 💡</button><span> Hint-3 successfully displayed</span></p>
+  <p>10: නැවකට සුළං හමන දිශාව පාලනය කල නොහැකි වුත් මෙය පාලනය කිරීමෙන් අවශ්‍ය දිශානතියට යාත්‍රා කළ හැක.
+    <button>Hint 💡</button><span> Hint-4 successfully displayed</span></p>
+  <p>16: රැජිණ යන්නට සමාන පදයකි.
+    <button>Hint 💡</button><span> Hint-5 successfully displayed</span></p>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  
+  <script>
+  var answers = $("input:not(:disabled)"); // Retrieve all able inputs
+
+// Array of IDs
+var myarr = [
+  "myId03",
+  "myId12",
+  "myId13",
+  "myId14",
+  "myId15",
+  "myId23",
+  "myId25",
+  "myId31",
+  "myId32",
+  "myId33",
+  "myId35",
+  "myId41"
+];
+
+// Array of answers
+var arr = ["ස", "පි", "න්", "තා", "රු", "නා", "ව", "රා", "ග", "ම", "ල", "ණි"];
+
+// Timing
+var seconds = 0;
+var timer = setInterval(function(){
+  seconds++;
+  $("#timer").text(seconds);
+}, 1000)
+var complete = 0; // To check if the answers are complete
+
+// Check inputs
+answers.keyup(function(e) {
+  var temp = e.target.id;
+  var myIndex = myarr.indexOf(temp); // Check for index of IDs
+  var answer = arr[myIndex]; // Check for answer
+  var myInput = $(this).val(); // Check for user input
+
+  var correct = true;
+  for (var i = 0; i < myInput.length; i++) {
+    if (myInput[i] !== answer[i]) {
+      correct = false;
+      break;
+    }
+  }
+
+  if (correct && myInput === answer) {
+    this.style.backgroundColor = "green";
+    $(this).attr("disabled", "true");
+    complete++;
+  } else {
+    this.style.backgroundColor = "red";
+    complete--;
+  }
+
+  // Check if all answers are complete
+  if (complete == 12) {
+    clearInterval(timer);
+    $("#timer").text("Puzzle completed in " + seconds);
+    alert("Hurray!!!\nChallenge complete");
+  }
+});
+
+$("button").click(function(){
+  seconds += 60;
+});
+
+
+// Function to update the timer
+function updateTimer() {
+  seconds++;
+  var minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+  var secs = (seconds % 60).toString().padStart(2, '0');
+  var time = minutes + ':' + secs;
+  document.getElementById('timer').textContent = time;
+}
+
+var seconds = 0;
+
+// Update the timer every second
+var timerInterval = setInterval(updateTimer, 1000);
+
+// Initial call to start the timer immediately
+updateTimer();
+
+// Define an object to store word hints and corresponding image URLs
+var wordHints = {
+  " Hint-1 successfully displayed": "https://www.reinventeddelaware.com/wp-content/uploads/2023/01/real-brass-look-alike-paint-technique-11Featured-Image.jpg", // Example: Replace with actual image URLs
+  " Hint-2 successfully displayed": "https://slsigiriya.com/wp-content/uploads/2021/07/Ragama-Basilica-3.jpg",
+  " Hint-3 successfully displayed": "https://deniseleeyohn.com/wp-content/uploads/2015/08/brand-logos-thumbs-up.jpg",
+  " Hint-4 successfully displayed": "https://t3.ftcdn.net/jpg/05/60/68/58/360_F_560685829_v4CK4bgPNcQaNf0qoW2qhntwSnMDiRbm.jpg",
+  " Hint-5 successfully displayed": "https://images.thequint.com/thequint/2017-11/e225d786-c009-41e0-8d94-808eadaf9c1f/c108c5af-f569-41a5-ad4a-a9fa7a122a18.jpg?%20%20%20%20%20%20%20%20%20%20%20%20%20%20auto=format,compress&fmt=webp&format=webp&w=1200&h=900&dpr=1.0"
+  // Add more word hints and image URLs as needed
+};
+
+// Function to reveal hint image corresponding to the word
+$("button").click(function() {
+  var word = $(this).next().text(); // Get the word associated with the button
+  var hintImage = wordHints[word]; // Get the hint image URL from the object
+
+  if (hintImage) { // If a hint image exists for the word
+    $("#hint-image-container").html('<img src="' + hintImage + '" alt="Hint Image">');
+  } else {
+    $("#hint-image-container").html('<p>No hint available for this word</p>');
+  }
+});
+
+  </script>
+</body>
+
+</html>
