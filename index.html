@@ -2576,7 +2576,8 @@ var stargate = {
 }
 function checkPasscode() {
   var passcodeInput = document.getElementById("passcode").value;
-  var passcode = "4370";
+  var passcode = atob("NDM3MA=="); 
+        console.log(passcode); 
 
   if (passcodeInput === passcode) {
     // If passcode is correct, display the web content
