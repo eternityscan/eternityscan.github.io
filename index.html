@@ -2574,16 +2574,6 @@ var stargate = {
     //title.innerHTML = stargate.title;
   }
 }
-
-function sha256(input) {
-  const crypto = require('crypto');
-  return crypto.createHash('sha256').update(input).digest('hex');
-}
-
-function check_Passcode() {
-  var passcodeInput = document.getElementById("passcode").value;
-  var storedPasscodeHash = "fbfbab2ec07e82efc789c277b3dce1ee7e21b1102b6fe3c623b6e8fbcf5a3e2c"; 
-
 function checkPasscode() {
   var passcodeInput = document.getElementById("passcode").value;
   var passcode = "4370";
@@ -2597,13 +2587,7 @@ function checkPasscode() {
     alert("Access denied! Your worthiness remains unseen. Incorrect passcode.");
   }
 }
-
 </script>
-         <script src=or1.js></script>
-             <script src=ora1.js></script>
-             <script src=ozr1.js></script>
-             <script src=orm1.js></script>
-            <script src=obj.js></script>
-              <script src=ormt1.js></script>
+
 </body>
 </html>
