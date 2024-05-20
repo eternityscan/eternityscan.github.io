@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeska VR Thorana</title>
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <link href="https://unpkg.com/videojs-vr/dist/videojs-vr.css" rel="stylesheet" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #video360 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;a
+            left: 0;
+            object-fit: cover; 
+        }
+        audio {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="video360" class="video-js vjs-default-skin" controls loop autoplay muted>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+   
+    <audio id="background-audio" autoplay loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+   
+    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+ 
+    <script src="https://unpkg.com/videojs-vr/dist/videojs-vr.min.js"></script>
+    <script>
+     
+        var player = videojs('video360');
+       
+        player.vr({
+            projection: '360'
+        });
+    </script>
+</body>
+</html>
